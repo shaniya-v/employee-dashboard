@@ -282,10 +282,32 @@ export default function App() {
             <p className="text-gray-700">You can now send a welcome email.</p>
             <button
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-xl hover:scale-105 transition"
-              onClick={() => {
-                alert(`Email sent to ${employeeData.email || 'new employee'}`);
-                closeSuccessPopup();
+              onClick={async () => {
+                try {
+                  const response = await fetch('https://shaniya.app.n8n.cloud/webhook/employee-added', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      name: employeeData.name,
+                      email: employeeData.email,
+                    }),
+                  });
+
+                  if (!response.ok) {
+                    throw new Error('Email API failed');
+                  }
+
+                  alert(`✅ Email sent to ${employeeData.email}`);
+                } catch (err) {
+                  console.error(err);
+                  alert('❌ Failed to send email. Please check the webhook or server.');
+                } finally {
+                  closeSuccessPopup();
+                }
               }}
+
             >
               Send Mail
             </button>
