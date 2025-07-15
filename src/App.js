@@ -87,10 +87,7 @@ export default function App() {
     }
 
 
-    const newEmployee = {
-      ...employeeData,
-      employee_id: employeeId,
-    };
+    
 
     let data, error;
     if (isEditing) {
