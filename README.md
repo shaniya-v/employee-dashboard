@@ -3,7 +3,7 @@
 A modern HR management dashboard built with **React + Supabase**  
 🔐 Manage employees, send email notifications, and maintain a clean UI.
 
-🔗 **Live Demo**: [https://your-netlify-link.netlify.app](https://your-netlify-link.netlify.app)
+🔗 **Live Demo**: https://employeemanagementation.netlify.app/
 
 ---
 
@@ -30,6 +30,20 @@ A modern HR management dashboard built with **React + Supabase**
 - Tailwind CSS
 - n8n (Webhook Email Trigger)
 - Netlify (Hosting)
+
+📂 Folder Structure
+src/
+├── components/
+│   ├── Header.js
+│   ├── EmployeeTable.js
+│   └── SuccessPopup.js
+├── pages/
+│   └── Dashboard.js
+├── services/
+│   ├── supabaseClient.js
+│   └── employeeService.js
+├── App.js
+└── index.js
 
 ---
 
